@@ -2,17 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="838474e1-c4de-4ee6-b6e8-6349346c1771" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/OffreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/OffreType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/offre.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GameApp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Coupon.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Coupon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Jeux.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/CrudService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/offre/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503190507.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192046.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192306.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192422.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192626.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503193645.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194205.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194407.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194648.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194724.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503195043.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503195347.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503200223.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503200515.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503200745.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201216.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201329.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201543.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201729.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201926.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503202459.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240503203126.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JeuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Offre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/OffreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OffreType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/offre.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/offre.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +216,7 @@
       <workItem from="1714963003461" duration="1359000" />
       <workItem from="1714967487780" duration="1194000" />
       <workItem from="1714968894817" duration="1161000" />
-      <workItem from="1715001927936" duration="3719000" />
+      <workItem from="1715001752556" duration="4812000" />
     </task>
     <servers />
   </component>

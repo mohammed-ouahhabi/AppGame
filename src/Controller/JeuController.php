@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\CrudService;
 use App\Entity\Jeux;
 use App\Entity\Offre;
 use App\Entity\UserWishlist;
@@ -16,6 +17,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class JeuController extends AbstractController
 {
+    private $crudService;
+
+    public function __construct(CrudService $crudService)
+    {
+        $this->crudService = $crudService;
+    }
+
     #[Route('/jeu/{id}', name: 'jeu_afficher')]
     public function afficher(int $id, JeuxRepository $jeuxRepository): Response
     {
@@ -49,12 +57,8 @@ class JeuController extends AbstractController
         $jeu = new Jeux();
         $form = $this->createForm(JeuxType::class, $jeu);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $entityManager->persist($jeu);
-            $entityManager->flush();
-
+            $this->crudService->create($jeu);
             return $this->redirectToRoute('home_index');
         }
 
@@ -68,8 +72,7 @@ class JeuController extends AbstractController
     public function delete(Request $request, Jeux $jeu, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $jeu->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($jeu);
-            $entityManager->flush();
+            $this->crudService->delete($jeu);
         }
 
         return $this->redirectToRoute('home_index');
@@ -97,13 +100,7 @@ class JeuController extends AbstractController
         ]);
     }
 
-    #[Route('/offre/{id}', name: 'offre_delete', methods: ['POST'])]
-    public function deleteoffre(Request $request, Offre $offre, EntityManagerInterface $entityManager): Response
-    {
-            $entityManager->remove($offre);
-            $entityManager->flush();
-        return $this->redirectToRoute('home_index');
-    }
+
 
     #[Route('/purchase', name: 'purchase', methods: ['POST'])]
     public function validatePurchase(SessionInterface $session, EntityManagerInterface $entityManager, Security $security): Response

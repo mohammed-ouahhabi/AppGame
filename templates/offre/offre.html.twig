@@ -4,7 +4,9 @@
     <div class="container mt-4">
         <h1>Liste des offres existantes</h1>
         <div class="list-group">
+            <a href="{{ path('offre_new') }}" class="btn btn-primary">Ajouter un nouveau offre</a>
             {% for offre in offres %}
+
                 <div class="list-group-item">
                     <h5 class="mb-1">{{ offre.jeux.nom }}</h5>
                     <p>Coupon: {{ offre.coupon.code }}</p>

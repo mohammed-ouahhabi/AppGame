@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create New Offer{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Create New Offer</h1>
+        {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_row(form.jeux, {
+                label: 'Game',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.coupon, {
+                label: 'Coupon',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.prix, {
+                label: 'Price',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.lien, {
+                label: 'Purchase Link',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.edition, {
+                label: 'Edition',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.plateformeJeu, {
+                label: 'Platform',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.plateformeActivation, {
+                label: 'Platform D\'activation',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ path('offre') }}" class="btn btn-secondary">Back to list</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

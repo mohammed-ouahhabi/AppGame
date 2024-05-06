@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\OffreRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: OffreRepository::class)]
 class Offre
@@ -28,8 +30,9 @@ class Offre
     #[ORM\Column(length: 255)]
     private ?string $plateformeJeu = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $plateformeActivation = null;
+    #[ORM\Column(type: 'string', nullable: true)]
+    #[Assert\NotBlank]
+    private $plateformeActivation;
 
     #[ORM\ManyToOne(inversedBy: 'offres')]
     private ?Coupon $coupon = null;

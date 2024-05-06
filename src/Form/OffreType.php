@@ -29,7 +29,10 @@ class OffreType extends AbstractType
             ->add('lien', UrlType::class)
             ->add('edition', TextType::class)
             ->add('plateformeJeu', TextType::class)
-            ->add('save', SubmitType::class, ['label' => 'Save Offer']);
+            ->add('plateformeActivation', TextType::class, [
+                'required' => true
+            ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
