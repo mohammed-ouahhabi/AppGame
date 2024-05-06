@@ -14,7 +14,7 @@ class JeuPlatforme
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'jeuPlatformes')]
-    private ?jeux $jeux = null;
+    private ?Jeux $jeux = null;
 
     #[ORM\Column(length: 255)]
     private ?string $plateforme = null;
@@ -24,12 +24,12 @@ class JeuPlatforme
         return $this->id;
     }
 
-    public function getJeux(): ?jeux
+    public function getJeux(): ?Jeux
     {
         return $this->jeux;
     }
 
-    public function setJeux(?jeux $jeux): static
+    public function setJeux(?Jeux $jeux): static
     {
         $this->jeux = $jeux;
 

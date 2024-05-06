@@ -14,7 +14,7 @@ class Offre
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'offres')]
-    private ?jeux $jeux = null;
+    private ?Jeux $jeux = null;
 
     #[ORM\Column]
     private ?float $prix = null;
@@ -32,19 +32,19 @@ class Offre
     private ?string $plateformeActivation = null;
 
     #[ORM\ManyToOne(inversedBy: 'offres')]
-    private ?coupon $coupon = null;
+    private ?Coupon $coupon = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getJeux(): ?jeux
+    public function getJeux(): ?Jeux
     {
         return $this->jeux;
     }
 
-    public function setJeux(?jeux $jeux): static
+    public function setJeux(?Jeux $jeux): static
     {
         $this->jeux = $jeux;
 
@@ -111,12 +111,12 @@ class Offre
         return $this;
     }
 
-    public function getCoupon(): ?coupon
+    public function getCoupon(): ?Coupon
     {
         return $this->coupon;
     }
 
-    public function setCoupon(?coupon $coupon): static
+    public function setCoupon(?Coupon $coupon): static
     {
         $this->coupon = $coupon;
 

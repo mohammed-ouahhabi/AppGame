@@ -22,7 +22,7 @@ class Commentaire
     private ?string $commentaire = null;
 
     #[ORM\ManyToOne(inversedBy: 'commentaires')]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateCommentaire = null;
@@ -31,7 +31,7 @@ class Commentaire
     private ?\DateTimeInterface $dateModification = null;
 
     #[ORM\ManyToOne(inversedBy: 'commentaires')]
-    private ?jeux $jeux = null;
+    private ?Jeux $jeux = null;
 
     #[ORM\Column]
     private ?int $note = null;
@@ -46,12 +46,12 @@ class Commentaire
         return $this->id;
     }
 
-    public function getJeux(): ?jeux
+    public function getJeux(): ?Jeux
     {
         return $this->jeux;
     }
 
-    public function setJeux(?jeux $jeux): static
+    public function setJeux(?Jeux $jeux): static
     {
         $this->jeux = $jeux;
 
@@ -99,12 +99,12 @@ class Commentaire
         return $this;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?user $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
 

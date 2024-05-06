@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="cart-table">
+        <h1>Panier</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date de sortie</th>
+                <th>Nom du développeur</th>
+                <th>Editeur</th>
+                <th>Quantité</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for jeu in jeux %}
+                <tr>
+                    <td>{{ jeu.nom }}</td>
+                    <td>{{ jeu.dateSortie|date('d/m/Y') }}</td>
+                    <td>{{ jeu.developpeur.nom }}</td>
+                    <td>{{ jeu.editeur.nom }}</td>
+                    {% for offre in offres %}
+                        <td>Prix : {{ offre.prix }}€</td>
+                        <td>Plateforme : {{ offre.plateformeJeu }}</td>
+                        <td><a href="{{ offre.lien }}">Acheter maintenant</a></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <form action="{{ path('purchase') }}" method="post" onsubmit="return confirm('Are you sure you want to finalize this purchase?');">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('validate_purchase_item') }}">
+            <button type="submit" class="btn btn-primary">Validate Purchase</button>
+        </form>
+
+    </div>
+{% endblock %}

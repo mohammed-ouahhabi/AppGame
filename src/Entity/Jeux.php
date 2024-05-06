@@ -23,10 +23,10 @@ class Jeux
     private ?\DateTimeInterface $dateSortie = null;
 
     #[ORM\ManyToOne(inversedBy: 'jeuxes')]
-    private ?developpeur $developpeur = null;
+    private ?Developpeur $developpeur = null;
 
     #[ORM\ManyToOne(inversedBy: 'jeuxes')]
-    private ?editeur $editeur = null;
+    private ?Editeur $editeur = null;
 
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'jeux')]
     private Collection $commentaires;
@@ -40,9 +40,15 @@ class Jeux
     #[ORM\OneToMany(targetEntity: Offre::class, mappedBy: 'jeux')]
     private Collection $offres;
 
+    #[ORM\ManyToMany(targetEntity: JeuPlatforme::class)]
+    #[ORM\JoinTable(name: 'jeux_plateformes')]
+    private Collection $plateformes;
+
+
 
     public function __construct()
     {
+        $this->plateformes = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
         $this->jeuPlatformes = new ArrayCollection();
         $this->userWishlists = new ArrayCollection();
@@ -79,24 +85,24 @@ class Jeux
         return $this;
     }
 
-    public function getDeveloppeur(): ?developpeur
+    public function getDeveloppeur(): ?Developpeur
     {
         return $this->developpeur;
     }
 
-    public function setDeveloppeur(?developpeur $developpeur): static
+    public function setDeveloppeur(?Developpeur $developpeur): static
     {
         $this->developpeur = $developpeur;
 
         return $this;
     }
 
-    public function getEditeur(): ?editeur
+    public function getEditeur(): ?Editeur
     {
         return $this->editeur;
     }
 
-    public function setEditeur(?editeur $editeur): static
+    public function setEditeur(?Editeur $editeur): static
     {
         $this->editeur = $editeur;
 

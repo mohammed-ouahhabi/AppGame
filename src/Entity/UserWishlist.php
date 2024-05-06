@@ -14,10 +14,10 @@ class UserWishlist
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'userWishlists')]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'userWishlists')]
-    private ?jeux $jeux = null;
+    private ?Jeux $jeux = null;
 
     #[ORM\Column]
     private ?bool $estPublique = null;
@@ -27,24 +27,24 @@ class UserWishlist
         return $this->id;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?user $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
 
         return $this;
     }
 
-    public function getJeux(): ?jeux
+    public function getJeux(): ?Jeux
     {
         return $this->jeux;
     }
 
-    public function setJeux(?jeux $jeux): static
+    public function setJeux(?Jeux $jeux): static
     {
         $this->jeux = $jeux;
 

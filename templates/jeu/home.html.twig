@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-3">
+        <h1 class="mb-4">Liste des jeux</h1>
+        <a href="{{ path('jeux_new') }}" class="btn btn-primary">Ajouter un nouveau jeu</a>
+
+        <div class="row">
+            {% for jeu in jeux %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{ path('jeu_afficher', {'id': jeu.id}) }}">{{ jeu.nom }}</a></h5>
+                            <p>Date de sortie: {{ jeu.dateSortie|date('d/m/Y') }}</p>
+                            <p>Développeur: {{ jeu.developpeur.nom }}</p>
+                            <p>Éditeur: {{ jeu.editeur.nom }}</p>
+                            <form action="{{ path('jeux_delete', {'id': jeu.id}) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce jeu ?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ jeu.id) }}">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+
+                            <p><a href="{{ path('add_cart', {'id': jeu.id}) }}" class="btn btn-info">Ajouter au panier</a></p>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
