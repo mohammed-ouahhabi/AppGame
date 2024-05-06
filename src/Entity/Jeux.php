@@ -45,7 +45,10 @@ class Jeux
     private Collection $plateformes;
 
 
-
+    public function __toString(): string
+    {
+        return $this->nom; // Return the name of the game or any appropriate string representation
+    }
     public function __construct()
     {
         $this->plateformes = new ArrayCollection();

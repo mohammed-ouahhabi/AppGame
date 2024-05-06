@@ -34,6 +34,8 @@ class Offre
     #[ORM\ManyToOne(inversedBy: 'offres')]
     private ?Coupon $coupon = null;
 
+
+
     public function getId(): ?int
     {
         return $this->id;

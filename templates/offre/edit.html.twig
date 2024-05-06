@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Edit Offer</h1>
+        {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_row(form.jeux, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.coupon, {'attr': {'class': 'form-control'}}) }} <!-- Corrected: Access the coupon entity itself -->
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.prix, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.lien, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.edition, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.plateformeJeu, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        {{ form_end(form) }}
+        <a href="{{ path('offre') }}" class="btn btn-link">Cancel</a>
+    </div>
+{% endblock %}

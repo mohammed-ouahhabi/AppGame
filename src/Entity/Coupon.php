@@ -25,6 +25,9 @@ class Coupon
     #[ORM\OneToMany(targetEntity: Offre::class, mappedBy: 'coupon')]
     private Collection $offres;
 
+    public function __toString(): string {
+        return $this->code;
+    }
     public function __construct()
     {
         $this->offres = new ArrayCollection();

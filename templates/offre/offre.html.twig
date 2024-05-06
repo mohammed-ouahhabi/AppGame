@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Liste des offres existantes</h1>
+        <div class="list-group">
+            {% for offre in offres %}
+                <div class="list-group-item">
+                    <h5 class="mb-1">{{ offre.jeux.nom }}</h5>
+                    <p>Coupon: {{ offre.coupon.code }}</p>
+                    <p>Prix: {{ offre.prix }}€</p>
+                    <p>Lien: <a href="{{ offre.lien }}" target="_blank">Acheter</a></p>
+                    <p>Édition: {{ offre.edition }}</p>
+                    <p>Plateforme: {{ offre.plateformeJeu }}</p>
+                    <a href="{{ path('offre_edit', {'id': offre.id}) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ path('offre_delete', {'id': offre.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ offre.id) }}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
