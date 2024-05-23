@@ -1,55 +1,128 @@
+{# templates/offre/new.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block title %}Create New Offer{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
-        <h1>Create New Offer</h1>
-        {{ form_start(form) }}
-        <div class="mb-3">
-            {{ form_row(form.jeux, {
-                label: 'Game',
-                attr: {'class': 'form-control'}
-            }) }}
+    <div class="container mt-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-dark text-white text-center">
+                <h2>Create New Offer</h2>
+            </div>
+            <div class="card-body">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.jeux, {
+                            label: 'Game',
+                            attr: {'class': 'form-control form-control-lg'}
+                        }) }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.coupon, {
+                            label: 'Coupon',
+                            attr: {'class': 'form-control form-control-lg'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.prix, {
+                            label: 'Price',
+                            attr: {'class': 'form-control form-control-lg'}
+                        }) }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.lien, {
+                            label: 'Purchase Link',
+                            attr: {'class': 'form-control form-control-lg'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.edition, {
+                            label: 'Edition',
+                            attr: {'class': 'form-control form-control-lg'}
+                        }) }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.plateformeJeu, {
+                            label: 'Platform',
+                            attr: {'class': 'form-control form-control-lg'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    {{ form_row(form.plateformeActivation, {
+                        label: "Platform D'activation",
+                        attr: {'class': 'form-control form-control-lg'}
+                    }) }}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <a href="{{ path('offres_index') }}" class="btn btn-secondary btn-lg">Back to list</a>
+                </div>
+                {{ form_end(form) }}
+            </div>
         </div>
-        <div class="mb-3">
-            {{ form_row(form.coupon, {
-                label: 'Coupon',
-                attr: {'class': 'form-control'}
-            }) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.prix, {
-                label: 'Price',
-                attr: {'class': 'form-control'}
-            }) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.lien, {
-                label: 'Purchase Link',
-                attr: {'class': 'form-control'}
-            }) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.edition, {
-                label: 'Edition',
-                attr: {'class': 'form-control'}
-            }) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.plateformeJeu, {
-                label: 'Platform',
-                attr: {'class': 'form-control'}
-            }) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.plateformeActivation, {
-                label: 'Platform D\'activation',
-                attr: {'class': 'form-control'}
-            }) }}
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ path('offre') }}" class="btn btn-secondary">Back to list</a>
-        {{ form_end(form) }}
     </div>
+
+    <style>
+        .container {
+            max-width: 900px;
+        }
+
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #343a40;
+            padding: 1.5rem;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.75rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        .form-control-lg {
+            border-radius: 0.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+    </style>
 {% endblock %}

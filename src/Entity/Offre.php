@@ -1,11 +1,11 @@
 <?php
 
+// src/Entity/Offre.php
 namespace App\Entity;
 
 use App\Repository\OffreRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 #[ORM\Entity(repositoryClass: OffreRepository::class)]
 class Offre
@@ -18,8 +18,8 @@ class Offre
     #[ORM\ManyToOne(inversedBy: 'offres')]
     private ?Jeux $jeux = null;
 
-    #[ORM\Column]
-    private ?float $prix = null;
+    #[ORM\Column(type: 'decimal')]
+    private ?string $prix = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lien = null;
@@ -30,14 +30,14 @@ class Offre
     #[ORM\Column(length: 255)]
     private ?string $plateformeJeu = null;
 
-    #[ORM\Column(type: 'string', nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     #[Assert\NotBlank]
-    private $plateformeActivation;
+    private ?string $plateformeActivation = null;
 
     #[ORM\ManyToOne(inversedBy: 'offres')]
     private ?Coupon $coupon = null;
 
-
+    private ?float $prixFinal = null;
 
     public function getId(): ?int
     {
@@ -109,7 +109,7 @@ class Offre
         return $this->plateformeActivation;
     }
 
-    public function setPlateformeActivation(string $plateformeActivation): static
+    public function setPlateformeActivation(?string $plateformeActivation): static
     {
         $this->plateformeActivation = $plateformeActivation;
 
@@ -127,4 +127,21 @@ class Offre
 
         return $this;
     }
+
+    public function getCouponCode(): ?string
+    {
+        return $this->coupon ? $this->coupon->getCode() : null;
+    }
+
+    public function getPrixFinal(): ?float
+    {
+        return $this->prixFinal ?? $this->prix;
+    }
+
+    public function setPrixFinal(?float $prixFinal): self
+    {
+        $this->prixFinal = $prixFinal;
+        return $this;
+    }
 }
+

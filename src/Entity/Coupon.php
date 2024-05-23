@@ -19,8 +19,14 @@ class Coupon
     #[ORM\Column(length: 255)]
     private ?string $code = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $reduction = null;
+    #[ORM\Column(type: Types::INTEGER)]
+    private ?int $reduction = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $expirationDate = null;
+
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $isActive = true;
 
     #[ORM\OneToMany(targetEntity: Offre::class, mappedBy: 'coupon')]
     private Collection $offres;
@@ -28,9 +34,32 @@ class Coupon
     public function __toString(): string {
         return $this->code;
     }
+
     public function __construct()
     {
         $this->offres = new ArrayCollection();
+    }
+
+    public function getExpirationDate(): ?\DateTimeInterface
+    {
+        return $this->expirationDate;
+    }
+
+    public function setExpirationDate(?\DateTimeInterface $expirationDate): self
+    {
+        $this->expirationDate = $expirationDate;
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+        return $this;
     }
 
     public function getId(): ?int
@@ -50,12 +79,12 @@ class Coupon
         return $this;
     }
 
-    public function getReduction(): ?string
+    public function getReduction(): ?int
     {
         return $this->reduction;
     }
 
-    public function setReduction(string $reduction): static
+    public function setReduction(int $reduction): static
     {
         $this->reduction = $reduction;
 

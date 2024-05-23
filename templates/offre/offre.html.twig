@@ -1,28 +1,62 @@
+{# templates/offre/offre.html.twig #}
 {% extends 'base.html.twig' %}
+
+{% block title %}Offres{% endblock %}
 
 {% block body %}
     <div class="container mt-4">
-        <h1>Liste des offres existantes</h1>
-        <div class="list-group">
-            <a href="{{ path('offre_new') }}" class="btn btn-primary">Ajouter un nouveau offre</a>
+        <h1 class="text-center mb-4 text-uppercase">Liste des offres existantes</h1>
+        <div class="mb-4 p-4 bg-dark border rounded shadow-sm filter-container">
+            {{ form_start(form, {'attr': {'class': 'form-inline justify-content-center'}}) }}
+            <div class="form-row w-100">
+                <div class="form-group col-md-3 mb-2">
+                    {{ form_row(form.edition, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group col-md-3 mb-2">
+                    {{ form_row(form.plateformeJeu, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group col-md-3 mb-2">
+                    {{ form_row(form.plateformeActivation, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group col-md-3 mb-2">
+                    {{ form_row(form.sortByPrice, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary filter-button"><i class="fas fa-filter"></i> Filtrer</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+        <div class="text-center mb-4">
+            <a href="{{ path('offre_new') }}" class="btn btn-success add-offre-button"><i class="fas fa-plus"></i> Ajouter une nouvelle offre</a>
+        </div>
+        <div class="row justify-content-center">
             {% for offre in offres %}
-
-                <div class="list-group-item">
-                    <h5 class="mb-1">{{ offre.jeux.nom }}</h5>
-                    <p>Coupon: {{ offre.coupon.code }}</p>
-                    <p>Prix: {{ offre.prix }}€</p>
-                    <p>Lien: <a href="{{ offre.lien }}" target="_blank">Acheter</a></p>
-                    <p>Édition: {{ offre.edition }}</p>
-                    <p>Plateforme: {{ offre.plateformeJeu }}</p>
-                    <a href="{{ path('offre_edit', {'id': offre.id}) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ path('offre_delete', {'id': offre.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
-                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ offre.id) }}">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-
+                <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                    <div class="card h-100 shadow-lg offer-card">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ offre.jeux.nom }}</h5>
+                            <p class="card-text">Coupon: {{ offre.coupon ? offre.coupon.code : 'No coupon' }}</p>
+                            <p class="card-text">
+                                Prix: <span style="text-decoration: line-through;">{{ offre.prix|number_format(0, ',', ' ') }}€</span>
+                                <span class="text-danger">{{ offre.prix_final|number_format(0, ',', ' ') }}€</span>
+                            </p>
+                            <p class="card-text">Lien: <a href="{{ offre.lien }}" target="_blank" class="text-primary">Acheter</a></p>
+                            <p class="card-text">Édition: {{ offre.edition }}</p>
+                            <p class="card-text">Plateforme: {{ offre.plateformeJeu }}</p>
+                            <p class="card-text">Activation: {{ offre.plateformeActivation }}</p>
+                            <div class="mt-auto text-center">
+                                <a href="{{ path('offre_show_prix', {'id': offre.id}) }}" class="btn btn-info mb-2"><i class="fas fa-eye"></i> Voir les détails du prix</a>
+                                <a href="{{ path('offre_edit', {'id': offre.id}) }}" class="btn btn-primary mb-2"><i class="fas fa-edit"></i> Éditer</a>
+                                <form action="{{ path('offre_delete', {'id': offre.id}) }}" method="post" class="d-inline" onsubmit="return confirm('Êtes-vous sûr ?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ offre.id) }}">
+                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 {% endblock %}
-

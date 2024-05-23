@@ -1,11 +1,10 @@
 <?php
-
+// src/Entity/User.php
 namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -24,9 +23,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
-    /**
-     * @var string The hashed password
-     */
     #[ORM\Column]
     private ?string $password = null;
 
@@ -45,7 +41,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->userWishlists = new ArrayCollection();
     }
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -63,25 +58,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
-
         return array_unique($roles);
     }
 
@@ -92,9 +77,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
     public function getPassword(): string
     {
         return $this->password;
@@ -107,13 +89,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
 
     public function getNom(): ?string
@@ -128,9 +105,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Commentaire>
-     */
     public function getCommentaires(): Collection
     {
         return $this->commentaires;
@@ -149,7 +123,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeCommentaire(Commentaire $commentaire): static
     {
         if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
             if ($commentaire->getUser() === $this) {
                 $commentaire->setUser(null);
             }
@@ -158,9 +131,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, UserWishlist>
-     */
     public function getUserWishlists(): Collection
     {
         return $this->userWishlists;
@@ -179,7 +149,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeUserWishlist(UserWishlist $userWishlist): static
     {
         if ($this->userWishlists->removeElement($userWishlist)) {
-            // set the owning side to null (unless already changed)
             if ($userWishlist->getUser() === $this) {
                 $userWishlist->setUser(null);
             }
@@ -187,9 +156,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-
-
-
-
 }
+

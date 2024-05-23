@@ -1,0 +1,40 @@
+{# templates/editeur/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des éditeurs{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4 text-uppercase text-white">Liste des éditeurs</h1>
+        <div class="text-center mb-4">
+            <a href="{{ path('editeur_new') }}" class="btn btn-success"><i class="fas fa-plus"></i> Ajouter un nouvel éditeur</a>
+        </div>
+        <div class="row justify-content-center">
+            <table class="table table-striped bg-dark text-white">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for editeur in editeurs %}
+                    <tr class="bg-secondary">
+                        <td>{{ editeur.id }}</td>
+                        <td>{{ editeur.nom }}</td>
+                        <td>
+                            <a href="{{ path('editeur_show', {'id': editeur.id}) }}" class="btn btn-info"><i class="fas fa-eye"></i> Voir</a>
+                            <a href="{{ path('editeur_edit', {'id': editeur.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i> Modifier</a>
+                            <form method="post" action="{{ path('editeur_delete', {'id': editeur.id}) }}" style="display:inline-block;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet éditeur ?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ editeur.id) }}">
+                                <button class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

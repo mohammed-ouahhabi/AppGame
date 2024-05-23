@@ -1,34 +1,20 @@
 <?php
 
-// src/Form/OffreType.php
+
+// src/Form/OffreFilterType.php
 
 namespace App\Form;
 
-use App\Entity\Coupon;
-use App\Entity\Offre;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 
-class OffreType extends AbstractType
+class OffreFilterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('jeux')
-            ->add('coupon', EntityType::class, [
-                'class' => Coupon::class,
-                'choice_label' => 'code',
-                'required' => false,
-                'placeholder' => 'Select a coupon (optional)'
-            ])
-            ->add('prix', MoneyType::class)
-            ->add('lien', UrlType::class)
             ->add('edition', ChoiceType::class, [
                 'choices' => [
                     'Standard' => 'standard',
@@ -36,6 +22,8 @@ class OffreType extends AbstractType
                     'Deluxe' => 'deluxe',
                     'Ultimate' => 'ultimate',
                 ],
+                'required' => false,
+                'placeholder' => 'Choose all editions',
             ])
             ->add('plateformeJeu', ChoiceType::class, [
                 'choices' => [
@@ -45,6 +33,8 @@ class OffreType extends AbstractType
                     'Nintendo Switch' => 'Nintendo Switch',
                     'Mobile' => 'Mobile',
                 ],
+                'required' => false,
+                'placeholder' => 'Choose all platforms',
             ])
             ->add('plateformeActivation', ChoiceType::class, [
                 'choices' => [
@@ -54,13 +44,21 @@ class OffreType extends AbstractType
                     'Uplay' => 'Uplay',
                     'GOG' => 'GOG',
                 ],
+                'required' => false,
+                'placeholder' => 'All Activation Platforms'
+            ])
+            ->add('sortByPrice', ChoiceType::class, [
+                'choices' => [
+                    'Ascending' => 'asc',
+                    'Descending' => 'desc',
+                ],
+                'required' => false,
+                'placeholder' => 'Sort by all prices',
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            'data_class' => Offre::class,
-        ]);
+        $resolver->setDefaults([]);
     }
 }

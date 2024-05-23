@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prix de l'Offre{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Détails du prix de l'offre</h1>
+        <table class="table table-dark table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Prix Initial</th>
+                <th>Réduction</th>
+                <th>Prix Final</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ prixDetails.prix|number_format(0, ',', ' ') }}€</td>
+                <td>{{ prixDetails.reduction }}%</td>
+                <td class="text-danger">{{ prixDetails.prix_final|number_format(0, ',', ' ') }}€</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

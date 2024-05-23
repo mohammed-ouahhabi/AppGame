@@ -1,0 +1,40 @@
+{# templates/developpeur/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des développeurs{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4 text-uppercase text-white">Liste des développeurs</h1>
+        <div class="text-center mb-4">
+            <a href="{{ path('developpeur_new') }}" class="btn btn-success"><i class="fas fa-plus"></i> Ajouter un nouveau développeur</a>
+        </div>
+        <div class="row justify-content-center">
+            <table class="table table-striped bg-dark text-white">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for developpeur in developpeurs %}
+                    <tr class="bg-secondary">
+                        <td>{{ developpeur.id }}</td>
+                        <td>{{ developpeur.nom }}</td>
+                        <td>
+                            <a href="{{ path('developpeur_show', {'id': developpeur.id}) }}" class="btn btn-info"><i class="fas fa-eye"></i> Voir</a>
+                            <a href="{{ path('developpeur_edit', {'id': developpeur.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i> Modifier</a>
+                            <form method="post" action="{{ path('developpeur_delete', {'id': developpeur.id}) }}" style="display:inline-block;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce développeur ?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ developpeur.id) }}">
+                                <button class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,4 +1,7 @@
 <?php
+
+
+
 // src/Form/JeuxType.php
 namespace App\Form;
 
@@ -8,8 +11,6 @@ use App\Entity\Jeux;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,17 +21,16 @@ class JeuxType extends AbstractType
         $builder
             ->add('nom')
             ->add('dateSortie', DateType::class, [
-                'widget' => 'single_text',  // Pour utiliser un input type="date"
+                'widget' => 'single_text',
             ])
             ->add('developpeur', EntityType::class, [
                 'class' => Developpeur::class,
-                'choice_label' => 'nom', // supposant que 'nom' est la propriété que vous voulez afficher
+                'choice_label' => 'nom',
             ])
             ->add('editeur', EntityType::class, [
                 'class' => Editeur::class,
-                'choice_label' => 'nom', // Choisissez une propriété qui définit l'entité, comme 'nom'
+                'choice_label' => 'nom',
             ]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

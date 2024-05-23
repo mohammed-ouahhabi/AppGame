@@ -1,0 +1,23 @@
+{# templates/editeur/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'éditeur{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Détails de l'éditeur</h1>
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <td>{{ editeur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ editeur.nom }}</td>
+            </tr>
+        </table>
+        <div class="text-center">
+            <a href="{{ path('editeur_index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

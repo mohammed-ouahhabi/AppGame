@@ -1,39 +1,49 @@
+{# templates/panier/panier.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% block title %}Panier{% endblock %}
+
 {% block body %}
-    <div class="cart-table">
-        <h1>Panier</h1>
-        <table class="table">
-            <thead>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Panier</h1>
+        <table class="table table-dark table-striped">
+            <thead class="thead-dark">
             <tr>
                 <th>Nom</th>
                 <th>Date de sortie</th>
                 <th>Nom du développeur</th>
-                <th>Editeur</th>
-                <th>Quantité</th>
-                <th>Action</th>
+                <th>Nom d'Éditeur</th>
+                <th>Prix</th>
+                <th>Plateforme</th>
             </tr>
             </thead>
             <tbody>
             {% for jeu in jeux %}
-                <tr>
-                    <td>{{ jeu.nom }}</td>
-                    <td>{{ jeu.dateSortie|date('d/m/Y') }}</td>
-                    <td>{{ jeu.developpeur.nom }}</td>
-                    <td>{{ jeu.editeur.nom }}</td>
-                    {% for offre in offres %}
-                        <td>Prix : {{ offre.prix }}€</td>
-                        <td>Plateforme : {{ offre.plateformeJeu }}</td>
-                        <td><a href="{{ offre.lien }}">Acheter maintenant</a></td>
-                    {% endfor %}
-                </tr>
+                {% for offre in offres %}
+                    <tr>
+                        <td>{{ jeu.nom }}</td>
+                        <td>{{ jeu.dateSortie|date('d/m/Y') }}</td>
+                        <td>{{ jeu.developpeur.nom }}</td>
+                        <td>{{ jeu.editeur.nom }}</td>
+                        <td>
+                            Prix: <span style="text-decoration: line-through;">{{ offre.prix|number_format(0, ',', ' ') }}€</span>
+                            <span class="text-danger">{{ offre.getPrixFinal|number_format(0, ',', ' ') }}€</span>
+                        </td>
+                        <td>Plateforme: {{ offre.plateformeJeu }}</td>
+                    </tr>
+                {% endfor %}
             {% endfor %}
             </tbody>
         </table>
-        <form action="{{ path('purchase') }}" method="post" onsubmit="return confirm('Are you sure you want to finalize this purchase?');">
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('validate_purchase_item') }}">
-            <button type="submit" class="btn btn-primary">Validate Purchase</button>
-        </form>
-
+        <div class="text-center">
+            <form action="{{ path('panier') }}" method="post" onsubmit="return confirm('Are you sure you want to finalize this purchase?');">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('validate_purchase_item') }}">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Valider l'achat</button>
+            </form>
+            <form action="{{ path('clear_cart') }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir vider votre panier ?');">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('clear_cart') }}">
+                <button type="submit" class="btn btn-danger mt-3"><i class="fas fa-trash"></i> Vider le panier</button>
+            </form>
+        </div>
     </div>
 {% endblock %}

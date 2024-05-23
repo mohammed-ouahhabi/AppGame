@@ -31,7 +31,7 @@ class Jeux
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'jeux')]
     private Collection $commentaires;
 
-    #[ORM\OneToMany(targetEntity: JeuPlatforme::class, mappedBy: 'jeux')]
+    #[ORM\OneToMany(targetEntity: JeuPlatform::class, mappedBy: 'jeux')]
     private Collection $jeuPlatformes;
 
     #[ORM\OneToMany(targetEntity: UserWishlist::class, mappedBy: 'jeux')]
@@ -40,7 +40,7 @@ class Jeux
     #[ORM\OneToMany(targetEntity: Offre::class, mappedBy: 'jeux')]
     private Collection $offres;
 
-    #[ORM\ManyToMany(targetEntity: JeuPlatforme::class)]
+    #[ORM\ManyToMany(targetEntity: JeuPlatform::class)]
     #[ORM\JoinTable(name: 'jeux_plateformes')]
     private Collection $plateformes;
 
@@ -143,14 +143,14 @@ class Jeux
     }
 
     /**
-     * @return Collection<int, JeuPlatforme>
+     * @return Collection<int, JeuPlatform>
      */
     public function getJeuPlatformes(): Collection
     {
         return $this->jeuPlatformes;
     }
 
-    public function addJeuPlatforme(JeuPlatforme $jeuPlatforme): static
+    public function addJeuPlatforme(JeuPlatform $jeuPlatforme): static
     {
         if (!$this->jeuPlatformes->contains($jeuPlatforme)) {
             $this->jeuPlatformes->add($jeuPlatforme);
@@ -160,7 +160,7 @@ class Jeux
         return $this;
     }
 
-    public function removeJeuPlatforme(JeuPlatforme $jeuPlatforme): static
+    public function removeJeuPlatforme(JeuPlatform $jeuPlatforme): static
     {
         if ($this->jeuPlatformes->removeElement($jeuPlatforme)) {
             // set the owning side to null (unless already changed)

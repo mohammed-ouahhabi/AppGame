@@ -1,30 +1,59 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Modifier l'offre{% endblock %}
+
 {% block body %}
     <div class="container mt-4">
-        <h1>Edit Offer</h1>
-        {{ form_start(form) }}
-        <div class="mb-3">
-            {{ form_row(form.jeux, {'attr': {'class': 'form-control'}}) }}
+        <h1 class="text-center mb-4">Modifier l'offre</h1>
+        <div class="card p-4 bg-dark text-white">
+            {{ form_start(form) }}
+            <div class="mb-3">
+                {{ form_row(form.jeux, {
+                    label: 'Jeu',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(form.coupon, {
+                    label: 'Coupon',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(form.prix, {
+                    label: 'Prix',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(form.lien, {
+                    label: 'Lien d\'achat',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(form.edition, {
+                    label: 'Édition',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(form.plateformeJeu, {
+                    label: 'Plateforme',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="mb-3">
+                {{ form_row(form.plateformeActivation, {
+                    label: 'Plateforme d\'activation',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer</button>
+                <a href="{{ path('offres_index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Retour à la liste</a>
+            </div>
+            {{ form_end(form) }}
         </div>
-        <div class="mb-3">
-            {{ form_row(form.coupon, {'attr': {'class': 'form-control'}}) }} <!-- Corrected: Access the coupon entity itself -->
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.prix, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.lien, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.edition, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <div class="mb-3">
-            {{ form_row(form.plateformeJeu, {'attr': {'class': 'form-control'}}) }}
-        </div>
-
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-        {{ form_end(form) }}
-        <a href="{{ path('offre') }}" class="btn btn-link">Cancel</a>
     </div>
 {% endblock %}

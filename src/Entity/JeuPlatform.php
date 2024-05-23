@@ -6,7 +6,7 @@ use App\Repository\JeuPlatformeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: JeuPlatformeRepository::class)]
-class JeuPlatforme
+class JeuPlatform
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

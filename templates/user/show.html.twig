@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4 text-uppercase">User Details</h1>
+
+        <table class="table table-dark table-striped">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <a href="{{ path('app_user_index') }}" class="btn btn-secondary">Back to list</a>
+            <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-primary">Edit</a>
+            {{ include('user/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+    <style>
+        .btn-primary, .btn-secondary {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-secondary:hover {
+            background-color: #6c757d;
+            border-color: #545b62;
+        }
+    </style>
+{% endblock %}

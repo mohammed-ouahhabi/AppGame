@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JeuPlatforme{% endblock %}
+
+{% block body %}
+    <h1>JeuPlatforme</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ jeu_platforme.id }}</td>
+            </tr>
+            <tr>
+                <th>Plateforme</th>
+                <td>{{ jeu_platforme.plateforme }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_jeu_platforme_index') }}">back to list</a>
+
+    <a href="{{ path('app_jeu_platforme_edit', {'id': jeu_platforme.id}) }}">edit</a>
+
+    {{ include('jeu_platforme/_delete_form.html.twig') }}
+{% endblock %}

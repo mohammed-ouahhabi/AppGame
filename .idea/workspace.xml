@@ -2,38 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="838474e1-c4de-4ee6-b6e8-6349346c1771" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/CrudService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/OffreFilterType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/developpeur/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/developpeur/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/developpeur/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/editeur/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/editeur/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/editeur/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/offre/prix.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AppGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AppGame.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503190507.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192046.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192306.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192422.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503192626.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503193645.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194205.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194407.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194648.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503194724.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503195043.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503195347.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503200223.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503200515.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503200745.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201216.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201329.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201543.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201729.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503201926.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503202459.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240503203126.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240506150134.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/JeuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Coupon.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Coupon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/JeuPlatforme.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/JeuPlatform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Jeux.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Offre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/JeuxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/JeuxType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/OffreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OffreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/JeuPlatformeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/OffreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OffreRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CrudService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CrudService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Panier/panier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Panier/panier.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/jeu/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/offre/offre.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/offre.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,22 +181,32 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2fy86EyCxhQwtFNxgdIWhixSLHP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/laragon/www/AppGame&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/laragon/www/AppGame",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\AppGame\public\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -216,7 +227,11 @@
       <workItem from="1714963003461" duration="1359000" />
       <workItem from="1714967487780" duration="1194000" />
       <workItem from="1714968894817" duration="1161000" />
-      <workItem from="1715001752556" duration="4812000" />
+      <workItem from="1715001752556" duration="18824000" />
+      <workItem from="1715865611654" duration="7448000" />
+      <workItem from="1715951939470" duration="14138000" />
+      <workItem from="1716161993067" duration="8496000" />
+      <workItem from="1716210420375" duration="17665000" />
     </task>
     <servers />
   </component>
