@@ -39,7 +39,7 @@ Des métadonnées détaillées sur les jeux et les offres enrichissent l'expéri
 
 6. **Importer le Fichier SQL**
 
-   Importer le fichier sql dans votre BDD pour avoir des données de test.
+   Importer le fichier sql inclus dans le dossier AppGame dans votre BDD pour avoir des données de test.
 
 ## Utilisation
 
