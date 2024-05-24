@@ -10,9 +10,17 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class UserType extends AbstractType
 {
+    private $authorizationChecker;
+
+    public function __construct(AuthorizationCheckerInterface $authorizationChecker)
+    {
+        $this->authorizationChecker = $authorizationChecker;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -28,8 +36,11 @@ class UserType extends AbstractType
                 'label' => 'Nom',
                 'attr' => ['class' => 'form-control'],
                 'required' => true
-            ])
-            ->add('roles', ChoiceType::class, [
+            ]);
+
+        // Conditionally add roles field based on user's role
+        if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
+            $builder->add('roles', ChoiceType::class, [
                 'label' => 'Roles',
                 'choices' => [
                     'Admin' => 'ROLE_ADMIN',
@@ -39,6 +50,7 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'attr' => ['class' => 'form-control']
             ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -48,4 +60,4 @@ class UserType extends AbstractType
         ]);
     }
 }
-
+?>

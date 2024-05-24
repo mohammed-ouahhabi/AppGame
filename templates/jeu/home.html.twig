@@ -7,8 +7,9 @@
     <div class="container mt-4">
         <h1 class="text-center mb-4">Bienvenue sur la plateforme de jeux</h1>
         <div class="row">
-            <a href="{{ path('jeux_new') }}" class="btn btn-success add-offre-button"><i class="fas fa-plus"></i> Ajouter une nouveau jeu</a>
-
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('jeux_new') }}" class="btn btn-success add-offre-button"><i class="fas fa-plus"></i> Ajouter une nouveau jeu</a>
+            {% endif %}
             {% for jeu in jeux %}
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-lg offer-card">
@@ -19,12 +20,18 @@
                             <p class="card-text">Éditeur: {{ jeu.editeur.nom }}</p>
                             <div class="mt-auto text-center">
                                 <a href="{{ path('jeu_afficher', {'id': jeu.id}) }}" class="btn btn-info mb-2"><i class="fas fa-eye"></i> Voir les offres disponibles</a>
-                                <a href="{{ path('panier') }}" class="btn btn-info mb-2"><i class="fas fa-heart"></i> Move to Wishlist</a>
-
-                                <form action="{{ path('jeux_delete', {'id': jeu.id}) }}" method="POST" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce jeu ?');">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ jeu.id) }}">
-                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
-                                </form>
+                                {% if app.user %}
+                                    <form action="{{ path('wishlist_add') }}" method="POST" class="d-inline">
+                                        <input type="hidden" name="jeu_id" value="{{ jeu.id }}">
+                                        <button type="submit" class="btn btn-info mb-2"><i class="fas fa-heart"></i> Ajouter à la wishlist</button>
+                                    </form>
+                                {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <form action="{{ path('jeux_delete', {'id': jeu.id}) }}" method="POST" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce jeu ?');">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ jeu.id) }}">
+                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
+                                    </form>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
