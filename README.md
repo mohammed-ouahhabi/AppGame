@@ -13,7 +13,7 @@ Des métadonnées détaillées sur les jeux et les offres enrichissent l'expéri
 - PHP 7.4 ou supérieur
 - Composer
 - Symfony CLI
-- MySQL ou une autre base de données supportée
+- MySQL
 
 ## Installation
 
