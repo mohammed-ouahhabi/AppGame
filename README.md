@@ -52,7 +52,7 @@ Des métadonnées détaillées sur les jeux et les offres enrichissent l'expéri
 2. **Accéder à l'application**
 
     Ouvrez votre navigateur web et allez sur `http://localhost:8000`.
-
+    Pour avoir acces à un compte admin utiliser test@test.com, mdp : test
 
 ## Contact
 
